@@ -15,7 +15,7 @@
 <meta property="og:description" content="环境前提准备 Node.js (&gt;&#x3D;8.10) npm (&gt;&#x3D;5.6)  创建项目123npx create-react-app project-namecd project-namenpm start  核心概念JSXJavaScript 的语法扩展  可以直接在js里写标签 标签内可以在大括号中放任何有效的JS表达式 标签属性可以通过引号或者大括号指定 JSX直接使用是安全的（Re">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-12-29T14:56:59.000Z">
-<meta property="article:modified_time" content="2020-12-29T15:08:44.224Z">
+<meta property="article:modified_time" content="2020-12-29T15:11:58.507Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="React">
 <meta name="twitter:card" content="summary">
@@ -108,10 +108,7 @@
 </li>
 </ol>
 <ul>
-<li>JSX –&gt; Babel转译 –&gt; 实际创建元素<blockquote>
-<p>《React 官方文档》</p>
-</blockquote>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// JSX</span></span><br><span class="line"><span class="keyword">const</span> element = (</span><br><span class="line">  &lt;h1 className=<span class="string">&quot;greeting&quot;</span>&gt;</span><br><span class="line">    Hello, world!</span><br><span class="line">  &lt;/h1&gt;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<li>JSX –&gt; Babel转译 –&gt; 实际创建元素<br><i>《React 官方文档》</i><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// JSX</span></span><br><span class="line"><span class="keyword">const</span> element = (</span><br><span class="line">  &lt;h1 className=<span class="string">&quot;greeting&quot;</span>&gt;</span><br><span class="line">    Hello, world!</span><br><span class="line">  &lt;/h1&gt;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Babel转译</span></span><br><span class="line"><span class="keyword">const</span> element = React.createElement(</span><br><span class="line">  <span class="string">&#x27;h1&#x27;</span>,</span><br><span class="line">  &#123;<span class="attr">className</span>: <span class="string">&#x27;greeting&#x27;</span>&#125;,</span><br><span class="line">  <span class="string">&#x27;Hello, world!&#x27;</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 实际创建元素</span></span><br><span class="line"><span class="comment">// 注意：这是简化过的结构</span></span><br><span class="line"><span class="keyword">const</span> element = &#123;</span><br><span class="line">  type: <span class="string">&#x27;h1&#x27;</span>,</span><br><span class="line">  props: &#123;</span><br><span class="line">    className: <span class="string">&#x27;greeting&#x27;</span>,</span><br><span class="line">    children: <span class="string">&#x27;Hello, world!&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 

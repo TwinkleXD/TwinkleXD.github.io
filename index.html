@@ -105,10 +105,7 @@
 </li>
 </ol>
 <ul>
-<li>JSX –&gt; Babel转译 –&gt; 实际创建元素<blockquote>
-<p>《React 官方文档》</p>
-</blockquote>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// JSX</span></span><br><span class="line"><span class="keyword">const</span> element = (</span><br><span class="line">  &lt;h1 className=<span class="string">&quot;greeting&quot;</span>&gt;</span><br><span class="line">    Hello, world!</span><br><span class="line">  &lt;/h1&gt;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<li>JSX –&gt; Babel转译 –&gt; 实际创建元素<br><i>《React 官方文档》</i><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// JSX</span></span><br><span class="line"><span class="keyword">const</span> element = (</span><br><span class="line">  &lt;h1 className=<span class="string">&quot;greeting&quot;</span>&gt;</span><br><span class="line">    Hello, world!</span><br><span class="line">  &lt;/h1&gt;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Babel转译</span></span><br><span class="line"><span class="keyword">const</span> element = React.createElement(</span><br><span class="line">  <span class="string">&#x27;h1&#x27;</span>,</span><br><span class="line">  &#123;<span class="attr">className</span>: <span class="string">&#x27;greeting&#x27;</span>&#125;,</span><br><span class="line">  <span class="string">&#x27;Hello, world!&#x27;</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 实际创建元素</span></span><br><span class="line"><span class="comment">// 注意：这是简化过的结构</span></span><br><span class="line"><span class="keyword">const</span> element = &#123;</span><br><span class="line">  type: <span class="string">&#x27;h1&#x27;</span>,</span><br><span class="line">  props: &#123;</span><br><span class="line">    className: <span class="string">&#x27;greeting&#x27;</span>,</span><br><span class="line">    children: <span class="string">&#x27;Hello, world!&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
@@ -163,9 +160,7 @@
 <li>接口的请求</li>
 <li>Dom的查询</li>
 </ul>
-<blockquote>
-<p>同源策略用于限制同源文档或脚本与另一个源的资源进行交互。它能帮助阻隔恶意文档，减少可能被攻击的媒介。<br>by <i>MDN Web Docs</i> <a src='https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy'>浏览器的同源策略</a></p>
-</blockquote>
+<p><i>同源策略用于限制同源文档或脚本与另一个源的资源进行交互。它能帮助阻隔恶意文档，减少可能被攻击的媒介。</i><br>by <i>MDN Web Docs</i> <a src='https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy'>浏览器的同源策略</a></p>
 <p>同源指两个URL的 协议/主机(/端口)都相同，这两个URL同源</p>
 <h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><h2 id="CORS（“跨域资源共享”）"><a href="#CORS（“跨域资源共享”）" class="headerlink" title="CORS（“跨域资源共享”）"></a>CORS（“跨域资源共享”）</h2><p>将问题抛给了后端（。</p>
 <h3 id="简单请求（HEAD-GET-POST）"><a href="#简单请求（HEAD-GET-POST）" class="headerlink" title="简单请求（HEAD GET POST）"></a>简单请求（HEAD GET POST）</h3><p>实现CORS通信的关键是服务器，服务器返回的响应会多出几个头信息字段：</p>
