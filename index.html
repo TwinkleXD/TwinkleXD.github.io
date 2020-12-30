@@ -95,27 +95,124 @@
 <h1 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h1><h2 id="JSX"><a href="#JSX" class="headerlink" title="JSX"></a>JSX</h2><p>JavaScript 的语法扩展</p>
 <ol>
 <li>可以直接在js里写标签</li>
-<li>标签内可以在大括号中放任何有效的JS表达式</li>
+<li>标签内可以在大括号中放任何有效的 JS 表达式</li>
 <li>标签属性可以通过引号或者大括号指定</li>
-<li>JSX直接使用是安全的（React DOM在渲染输入内容之前会转义成字符串，有效地防止XSS（cross-site-scripting, 跨站脚本）攻击）</li>
-<li>React元素：描述显示内容，是普通对象，不可变<ol>
-<li>Babel把JSX转译成<code>React.createElement()</code>函数调用</li>
+<li>JSX 直接使用是安全的（React DOM 在渲染输入内容之前会转义成字符串，有效地防止XSS（cross-site-scripting, 跨站脚本）攻击）</li>
+<li>React 元素：描述显示内容，是普通对象，不可变<ol>
+<li>Babel 把 JSX 转译成<code>React.createElement()</code>函数调用</li>
 <li><code>React.createElement()</code>预先执行检查，创建对象</li>
 </ol>
 </li>
 </ol>
 <ul>
-<li>JSX –&gt; Babel转译 –&gt; 实际创建元素<br><i>《React 官方文档》</i><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// JSX</span></span><br><span class="line"><span class="keyword">const</span> element = (</span><br><span class="line">  &lt;h1 className=<span class="string">&quot;greeting&quot;</span>&gt;</span><br><span class="line">    Hello, world!</span><br><span class="line">  &lt;/h1&gt;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<li><p>JSX –&gt; Babel 转译 –&gt; 实际创建元素</p>
+<p><i>《React 官方文档》</i></p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// JSX</span></span><br><span class="line"><span class="keyword">const</span> element = (</span><br><span class="line">  &lt;h1 className=<span class="string">&quot;greeting&quot;</span>&gt;</span><br><span class="line">    Hello, world!</span><br><span class="line">  &lt;/h1&gt;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Babel转译</span></span><br><span class="line"><span class="keyword">const</span> element = React.createElement(</span><br><span class="line">  <span class="string">&#x27;h1&#x27;</span>,</span><br><span class="line">  &#123;<span class="attr">className</span>: <span class="string">&#x27;greeting&#x27;</span>&#125;,</span><br><span class="line">  <span class="string">&#x27;Hello, world!&#x27;</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 实际创建元素</span></span><br><span class="line"><span class="comment">// 注意：这是简化过的结构</span></span><br><span class="line"><span class="keyword">const</span> element = &#123;</span><br><span class="line">  type: <span class="string">&#x27;h1&#x27;</span>,</span><br><span class="line">  props: &#123;</span><br><span class="line">    className: <span class="string">&#x27;greeting&#x27;</span>,</span><br><span class="line">    children: <span class="string">&#x27;Hello, world!&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
 <h2 id="元素渲染"><a href="#元素渲染" class="headerlink" title="元素渲染"></a>元素渲染</h2><ol>
-<li>React DOM负责更新浏览器DOM与React保持一致</li>
-<li><code>ReactDOM.render()</code>将React元素渲染到根DOM节点中</li>
-<li>当前更新UI的方式：创建全新元素传入<code>ReactDOM.render()</code></li>
-<li>React DOM会将元素和它的子元素与它们之前的状态进行比较，只更新需要更新的部分</li>
+<li>React DOM 负责更新浏览器 DOM 与 React 保持一致</li>
+<li><code>ReactDOM.render()</code>将 React 元素渲染到根 DOM 节点中</li>
+<li>当前更新 UI 的方式：创建全新元素传入<code>ReactDOM.render()</code></li>
+<li>React DOM 会将元素和它的子元素与它们之前的状态进行比较，只更新需要更新的部分</li>
+</ol>
+<h2 id="组件-amp-Props"><a href="#组件-amp-Props" class="headerlink" title="组件 &amp; Props"></a>组件 &amp; Props</h2><ol>
+<li><p>函数组件与 class 组件，以下为二者等效</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 函数组件</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Welcome</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, &#123;props.name&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// class组件</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Welcome</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="title">render</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, &#123;this.props.name&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>当 React 元素为用户自定义组件时，会将 JSX 所接收的属性（attributes）以及子组件（children）转换为单个对象传递给组件，即<code>props</code></p>
+</li>
+<li><p>React 会将以小写字母开头的组件视为原生 DOM 标签，所以自定义组件名称必须以大写字母开头</p>
+</li>
+<li><p>组合、提取组件其实都是将自定义组件作为标签复用、嵌套，需要注意 props 的传递</p>
+</li>
+<li><p>Props 具有只读性，组件不能修改自身的 props</p>
+<ul>
+<li><p>纯函数：不更改入参，多次调用相同入参返回值相同</p>
+<p><b>所有 React 组件都必须像纯函数一样保护 props 不被更改</b></p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="State-amp-生命周期"><a href="#State-amp-生命周期" class="headerlink" title="State &amp; 生命周期"></a>State &amp; 生命周期</h2><p>参考：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/gopark/p/12292146.html">ReactJs基础知识04–state&amp;&amp;生命周期</a></p>
+<h3 id="state"><a href="#state" class="headerlink" title="state"></a>state</h3><p>state 与 props 类似 ，但是 state 是私有的，完全受控于当前组件</p>
+<ol>
+<li>在 class 组件中添加<code>构造函数</code>，初始化<code>this.state</code><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// class XXX extends React.Component &#123;</span></span><br><span class="line">    <span class="function"><span class="title">constructor</span>(<span class="params">props</span>)</span> &#123;</span><br><span class="line">      <span class="built_in">super</span>(props); <span class="comment">// 将props传递到父类的构造函数中</span></span><br><span class="line">      <span class="built_in">this</span>.state = &#123;&#125;; <span class="comment">// 构造函数是唯一可以给this.state赋值的地方</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//&#125;</span></span><br></pre></td></tr></table></figure></li>
+<li>class 组件应该始终使用<code>props</code>参数来调用父类的构造函数，即<code>super(props)</code>，es6中，关键字 super 代表父类实例</li>
+<li>state的使用：<ol>
+<li>不要直接修改state，使用<code>setState()</code></li>
+<li>异步更新时，让<code>setState()</code>接收函数而不是对象<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">this</span>.setState(<span class="function">(<span class="params">state, props</span>) =&gt;</span> (&#123; <span class="comment">// 这个函数用上一个 state 作为第一个参数，将此次更新被应用时的 props 做为第二个参数</span></span><br><span class="line">  counter: state.counter + props.increment</span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure></li>
+<li>state 的更新会被合并，setState 并不会立即改变 state 的值，而是将其放到一个任务队列里，最终将多个 setState 合并，一次性更新页面</li>
+</ol>
+</li>
+</ol>
+<h3 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h3><ol>
+<li>挂载：组件被渲染到 DOM 中</li>
+<li>生命周期方法：组件挂载或者卸载（ DOM 中的组件被删除）时执行的方法</li>
+<li>具体方法：<ol>
+<li><code>componentWillMount</code>：在渲染前调用,在客户端也在服务端</li>
+<li><code>componentDidMount</code>：在第一次渲染后调用，只在客户端<ul>
+<li>之后组件已经生成了对应的 DOM 结构，可以通过<code>this.getDOMNode()</code>来进行访问</li>
+</ul>
+</li>
+<li><code>componentWillReceiveProps</code>：在组件接收到一个新的 prop(更新后) 时被调用</li>
+<li><code>shouldComponentUpdate</code>：返回一个布尔值。在组件接收到新的 props 或者 state 时被调用</li>
+<li><code>componentWillUpdate</code>：在组件接收到新的 props 或者 state 但还没有 render 时被调用</li>
+<li><code>componentDidUpdate</code>：在组件完成更新后立即调用</li>
+<li><code>componentWillUnmount</code>：在组件从 DOM 中移除的时候立刻被调用</li>
+</ol>
+</li>
+</ol>
+<h3 id="单项数据流"><a href="#单项数据流" class="headerlink" title="单项数据流"></a>单项数据流</h3><ol>
+<li>任何的 state 总是所属于特定的组件，而且从该 state 派生的任何数据或UI只能影响树中“低于”它们的组件</li>
+<li>在 React 应用中，组件是有状态组件还是无状态组件属于组件实现的细节，它可能会随着时间的推移而改变。你可以在有状态的组件中使用无状态的组件，反之亦然</li>
+</ol>
+<h2 id="事件处理"><a href="#事件处理" class="headerlink" title="事件处理"></a>事件处理</h2><ol>
+<li>命名采用驼峰式</li>
+<li>JSX 直接传入函数作为事件处理函数，而不是字符串</li>
+<li>不能通过<code>return false</code>阻止默认行为，要显式的用<code>preventDefault</code></li>
+<li><a target="_blank" rel="noopener" href="https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/">JS 中 class 的方法默认不会绑定 this ，需要手动绑定</a><ol>
+<li>使用 bind 绑定 this:<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">this</span>.handleClick = <span class="built_in">this</span>.handleClick.bind(<span class="built_in">this</span>);</span><br></pre></td></tr></table></figure></li>
+<li>class filed (实验性语法)<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">handleClick = <span class="function">() =&gt;</span> &#123;</span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">&#x27;this is:&#x27;</span>, <span class="built_in">this</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>回调中使用箭头函数 (每次渲染时都会创建不同的回调函数，作为 props 传入子组件时，可能会额外重新渲染，不推荐)<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> (</span><br><span class="line">   &lt;button onClick=&#123;<span class="function">() =&gt;</span> <span class="built_in">this</span>.handleClick()&#125;&gt;</span><br><span class="line">     Click me</span><br><span class="line">   &lt;/button&gt;</span><br><span class="line"> );</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li>向事件处理程序传递参数<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 事件对象显式传递</span></span><br><span class="line">&lt;button onClick=&#123;<span class="function">(<span class="params">e</span>) =&gt;</span> <span class="built_in">this</span>.deleteRow(id, e)&#125;&gt;Delete Row&lt;/button&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 事件对象、参数等隐式传递</span></span><br><span class="line">&lt;button onClick=&#123;<span class="built_in">this</span>.deleteRow.bind(<span class="built_in">this</span>, id)&#125;&gt;Delete Row&lt;/button&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="条件渲染"><a href="#条件渲染" class="headerlink" title="条件渲染"></a>条件渲染</h2><ol>
+<li>函数组件根据条件判断渲染返回的内容</li>
+<li>根据元素变量进行条件判断</li>
+<li>运算符判断: &amp;&amp;、三元运算符</li>
+<li>阻止组件渲染：render方法返回null，不会进行任何渲染，也不会影响组件的生命周期</li>
+</ol>
+<h2 id="列表-amp-Key"><a href="#列表-amp-Key" class="headerlink" title="列表 &amp; Key"></a>列表 &amp; Key</h2><ol>
+<li>数组转化成元素列表: <code>map()</code> 遍历数组元素插入<code>&lt;li&gt;</code>标签得到新数组，将新数组插入到<code>&lt;ul&gt;</code>标签中，渲染进 DOM</li>
+<li>key: 赋予数组中每个元素唯一标识，帮 React 识别哪些元素改变了，比如被添加或删除</li>
+<li>提取组件时应该把key元素保留在提取的组件中<ul>
+<li>在<code>map()</code>方法中的元素需要设置 key 属性</li>
+</ul>
+</li>
+<li>数组元素中使用的 key 在其兄弟节点之间应该是独一无二的</li>
+<li>key 会传递信息给 React ，但不会传递给组件</li>
+</ol>
+<h2 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h2><ol>
+<li>受控组件: 元素输入的值始终由 React 的 state 驱动，state更新，render函数都会执行,因此显示的值将随着输入改变而更新，实现了双向数据绑定</li>
+<li><code>&lt;textarea&gt;</code>、<code>&lt;select&gt;</code>与 HTML 中有所不同</li>
+<li><code>&lt;input&gt;</code>value只读，是非受控组件</li>
+<li>处理多个输入：给每个元素添加 name 属性，并让处理函数根据<code>event.target.name</code>的值选择要执行的操作</li>
+<li>受控组件指定 value 会阻止用户更改输入，value 设置为空仍可以编辑</li>
+</ol>
+<h2 id="状态提升"><a href="#状态提升" class="headerlink" title="状态提升"></a>状态提升</h2><p><b>多个组件需要反映相同的变化数据，将共享状态提升到最近的共同父组件中</b></p>
+<h2 id="组合-VS-继承"><a href="#组合-VS-继承" class="headerlink" title="组合 VS 继承"></a>组合 VS 继承</h2><ol>
+<li>包含关系：<code>&#123;props.children&#125;</code> 可嵌套JSX将任意组件作为子组件传递到渲染结果中（也可以自定义，不一定要<code>children</code>）<a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/components-slots.html">类似于Vue的插槽</a></li>
+<li>特例关系：“特殊”组件可以通过 props 定制并渲染“一般”组件：相当于给函数传递实参返回结果</li>
+<li>组合也同样适用于以 class 形式定义的组件</li>
+<li>Props 和组合提供了清晰而安全地定制组件外观和行为的灵活方式，组件可以直接引入（import）而无需通过 extend 继承</li>
 </ol>
 
       
@@ -124,7 +221,7 @@
       <a data-url="http://example.com/2020/12/29/React%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0/" data-id="ckja4mm4o0000qcd684ic65em" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/" rel="tag">React</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React-Note/" rel="tag">React, Note</a></li></ul>
 
     </footer>
   </div>
@@ -166,9 +263,7 @@
 <figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Access-Control-Allow-Origin</span>: *  //接受任意域名请求，或者仅接受origin字段的域名，必须</span><br><span class="line"><span class="attribute">Access-Control-Allow-Credentials</span>: true //允许发送cookie，可选</span><br><span class="line"><span class="attribute">Access-Control-Expose-Headers</span>:  //拿到响应的自定义非基本字段</span><br><span class="line"><span class="attribute">Content-Type</span>: text/html; charset=utf-8</span><br></pre></td></tr></table></figure>
 <p>其中，<b>允许发送cookie时，接受域名不能为<code>*</code>，且AJAX请求中需打开 <code>withCredentials</code>属性</b></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.withCredentials = <span class="literal">true</span>;</span><br></pre></td></tr></table></figure>
-<h3 id="非简单请求（PUT-DELETE-Content-Type：application-json）"><a href="#非简单请求（PUT-DELETE-Content-Type：application-json）" class="headerlink" title="非简单请求（PUT/ DELETE/ Content-Type：application/json）"></a>非简单请求（PUT/ DELETE/ Content-Type：application/json）</h3><blockquote>
-<p>非简单请求的CORS请求，会在正式通信之前，增加一次HTTP查询请求，称为”预检”请求（preflight）。</p>
-</blockquote>
+<h3 id="非简单请求（PUT-DELETE-Content-Type：application-json）"><a href="#非简单请求（PUT-DELETE-Content-Type：application-json）" class="headerlink" title="非简单请求（PUT/ DELETE/ Content-Type：application/json）"></a>非简单请求（PUT/ DELETE/ Content-Type：application/json）</h3><p><i>非简单请求的CORS请求，会在正式通信之前，增加一次HTTP查询请求，称为”预检”请求（preflight）.</i></p>
 <p>预检请求的方法是OPTIONS，用来询问。服务器通过预检请求后，再次请求就与简单请求相同。</p>
 <h2 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h2><p>to be done</p>
 
@@ -288,7 +383,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/" rel="tag">test</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-Note/" rel="tag">React, Note</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/" rel="tag">test</a></li></ul>
     </div>
   </div>
 
@@ -298,7 +393,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/test/" style="font-size: 10px;">test</a>
+      <a href="/tags/React-Note/" style="font-size: 10px;">React, Note</a> <a href="/tags/test/" style="font-size: 10px;">test</a>
     </div>
   </div>
 

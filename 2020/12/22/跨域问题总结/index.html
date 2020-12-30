@@ -15,7 +15,7 @@
 <meta property="og:description" content="出现原因：浏览器的同源策略  同源策略事实上，同源策略是浏览器最基本的一种安全机制，能规避一定程度的风险，主要是来自接口的请求和Dom的查询这两个方面的。  同源策略用于限制同源文档或脚本与另一个源的资源进行交互。它能帮助阻隔恶意文档，减少可能被攻击的媒介。by MDN Web Docs 浏览器的同源策略 同源指两个URL的 协议&#x2F;主机(&#x2F;端口)都相同，这两个URL才是同源的，路径可以不同。 解决">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-12-22T13:37:21.000Z">
-<meta property="article:modified_time" content="2020-12-29T16:22:30.116Z">
+<meta property="article:modified_time" content="2020-12-30T15:03:58.691Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -99,9 +99,7 @@
 <figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Access-Control-Allow-Origin</span>: *  //接受任意域名请求，或者仅接受origin字段的域名，必须</span><br><span class="line"><span class="attribute">Access-Control-Allow-Credentials</span>: true //允许发送cookie，可选</span><br><span class="line"><span class="attribute">Access-Control-Expose-Headers</span>:  //拿到响应的自定义非基本字段</span><br><span class="line"><span class="attribute">Content-Type</span>: text/html; charset=utf-8</span><br></pre></td></tr></table></figure>
 <p>其中，<b>允许发送cookie时，接受域名不能为<code>*</code>，且AJAX请求中需打开 <code>withCredentials</code>属性</b></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.withCredentials = <span class="literal">true</span>;</span><br></pre></td></tr></table></figure>
-<h3 id="非简单请求（PUT-DELETE-Content-Type：application-json）"><a href="#非简单请求（PUT-DELETE-Content-Type：application-json）" class="headerlink" title="非简单请求（PUT/ DELETE/ Content-Type：application/json）"></a>非简单请求（PUT/ DELETE/ Content-Type：application/json）</h3><blockquote>
-<p>非简单请求的CORS请求，会在正式通信之前，增加一次HTTP查询请求，称为”预检”请求（preflight）。</p>
-</blockquote>
+<h3 id="非简单请求（PUT-DELETE-Content-Type：application-json）"><a href="#非简单请求（PUT-DELETE-Content-Type：application-json）" class="headerlink" title="非简单请求（PUT/ DELETE/ Content-Type：application/json）"></a>非简单请求（PUT/ DELETE/ Content-Type：application/json）</h3><p><i>非简单请求的CORS请求，会在正式通信之前，增加一次HTTP查询请求，称为”预检”请求（preflight）.</i></p>
 <p>预检请求的方法是OPTIONS，用来询问。服务器通过预检请求后，再次请求就与简单请求相同。</p>
 <h2 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h2><p>to be done</p>
 
@@ -148,7 +146,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/" rel="tag">test</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-Note/" rel="tag">React, Note</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/" rel="tag">test</a></li></ul>
     </div>
   </div>
 
@@ -158,7 +156,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/test/" style="font-size: 10px;">test</a>
+      <a href="/tags/React-Note/" style="font-size: 10px;">React, Note</a> <a href="/tags/test/" style="font-size: 10px;">test</a>
     </div>
   </div>
 
