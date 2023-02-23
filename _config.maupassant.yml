@@ -127,7 +127,7 @@ widgets: ## Seven widgets in sidebar provided: search, info, category, tag, rece
   - links
 
 info:
-  avatar: image/photo.jpg
+  avatar: /img/photo.jpg
   discription: 世界上没有完全笔直的道路，要准备走曲折的路。
   outlinkitem:
     # - name: twitter
