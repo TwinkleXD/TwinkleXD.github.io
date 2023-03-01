@@ -8,7 +8,7 @@ date: 2023-02-21 10:12:07
 tags: 
   - Webpack
   - note
-description: Webpack5.0的学习记录
+description: Webpack的学习记录
 permalink:
 sticky:
 ---
@@ -47,7 +47,7 @@ graph LR
 ```
 
 首先从`webpack.config.js`中读取到对应的配置参数，与`shell`命令中传入的参数合并，得到最终打包的配置参数。
-然后会调用`webpack()`方法返回一个 `compiler` 方法，创建`compiler`对象，同时注册`Webpack Plugin`。
+然后会调用`webpack()`方法返回一个`compiler`方法，创建`compiler`对象，同时注册`Webpack Plugin`。
 找到配置入口的`entry`代码，调用`compiler.run()`方法进行编译。从入口模块开始分析，调用匹配文件的`loaders`进行文件处理，分析模块与依赖模块，递归进行编译。
 递归完成后得到模块间的相互依赖关系。整理后将文件输出到`output`对应的文件下。
 
