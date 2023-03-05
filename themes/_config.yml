@@ -1,0 +1,6 @@
+waline:
+  enable: true
+  comment: true
+  serverURL: https://waline-repo-swart.vercel.app/
+  pageSize: 10
+  wordLimit: 100
