@@ -121,8 +121,8 @@ deploy:
 #   placeholder: Just go go ## comment input placeholder text 
 #   avatar: 'mm' ## header image https://github.com/xCss/Valine/wiki
 
-# waline:
-#   enable: true
-#   serverURL: https://waline-repo-swart.vercel.app/
-#   pageSize: 10
-#   wordLimit: 100
+waline:
+  enable: true
+  serverURL: https://waline-repo-swart.vercel.app/
+  pageSize: 10
+  wordLimit: 100
