@@ -113,10 +113,16 @@ deploy:
   branch: main
 
 valine:
-  enable: true ## if you want to use Valine comment system, please set the value to true
+  enable: false ## if you want to use Valine comment system, please set the value to true
   appid: yCEHtxMQpeykC5timdDCd5dG-MdYXbMMI ## your leancloud application appid
   appkey: VOKEFoqEBT0qanH2U3mQXABt ## your leancloud application appkey
-  notify:  ## mail notifier , https://github.com/xCss/Valine/wiki
-  verify:  ## Verification code
+  notify: false ## mail notifier , https://github.com/xCss/Valine/wiki
+  verify: false ## Verification code
   placeholder: Just go go ## comment input placeholder text 
   avatar: 'mm' ## header image https://github.com/xCss/Valine/wiki
+
+waline:
+  enable: true
+  serverURL: https://waline-repo-swart.vercel.app/
+  pageSize: 10
+  wordLimit: 100
