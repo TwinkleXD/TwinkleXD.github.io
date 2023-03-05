@@ -100,6 +100,11 @@ ignore:
 # theme: landscape
 theme: maupassant
 
+mermaid:
+  enable: true
+  version: "latest"
+  options: 
+
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
