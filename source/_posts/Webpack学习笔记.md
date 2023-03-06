@@ -11,6 +11,7 @@ tags:
 description: Webpack的学习记录
 permalink:
 sticky:
+comments: true
 ---
 
 >本质上，webpack 是一个用于现代 JavaScript 应用程序的 <b>静态模块打包工具</b>。

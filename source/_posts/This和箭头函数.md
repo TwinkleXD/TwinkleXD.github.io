@@ -11,6 +11,7 @@ tags:
 description: this的指向问题
 permalink:
 sticky:
+comments: true
 ---
 参考：
 [JavaScript的this原理](http://www.ruanyifeng.com/blog/2018/06/javascript-this.html)

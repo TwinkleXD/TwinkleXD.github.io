@@ -11,6 +11,7 @@ tags:
 description: vue.js的两个核心/vue双向绑定的原理/vue生命周期/父子组件通信/页面级组件传值/动态组件
 permalink:
 sticky:
+comments: true
 ---
 # vue.js的两个核心
 数据驱动和组件化
